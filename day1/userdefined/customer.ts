@@ -1,6 +1,6 @@
 import {Address} from "./address";
 
-export class Customer{
+export abstract class Customer{
     protected _accountNo:number;
     protected _firstName:string;
     protected _lastName:string;
@@ -76,4 +76,9 @@ export class Customer{
     set addresses(value: Address[]) {
         this._addresses = value;
     }
+
+    //abstract
+
+    abstract deposit(money:number):number;
+
 }

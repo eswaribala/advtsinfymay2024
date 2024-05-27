@@ -3,6 +3,9 @@ import {Gender} from "../basics/gender";
 import {Address} from "./address";
 
 export class Individual extends Customer{
+    deposit(money: number): never {
+        throw new Error("Method not implemented.");
+    }
 
     private _gender:Gender;
     private _dob: Date;

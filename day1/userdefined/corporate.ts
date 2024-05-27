@@ -7,6 +7,8 @@ export class Corporate extends Customer{
 
 
     constructor(accountNo: number, firstName: string, lastName: string, contactNo: number, email: string, password: string, addresses: Address[], companyType: CompanyType) {
+       //supper sends value from subclass constructor to super class constructor
+        //always super should be first line
         super(accountNo, firstName, lastName, contactNo, email, password, addresses);
         this._companyType = companyType;
     }
@@ -18,5 +20,9 @@ export class Corporate extends Customer{
 
     set companyType(value: CompanyType) {
         this._companyType = value;
+    }
+
+    deposit(money: number): number {
+        return 0;
     }
 }
