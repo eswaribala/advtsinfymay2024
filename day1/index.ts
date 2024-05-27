@@ -20,7 +20,8 @@ function getAddresses():Address[]{
 }
 
 //spread operator
-function printAddresses(contactNo:number, ...addresses:Address[]):void{
+//assign anonymous function to variable
+let printAddresses=function(contactNo:number, ...addresses:Address[]):void{
     console.log(`Contact No=${contactNo}`)
     addresses.forEach(address=>{
         console.log(address);

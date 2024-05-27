@@ -16,7 +16,7 @@ function getAddresses() {
     return addresses;
 }
 //spread operator
-function printAddresses(contactNo) {
+var printAddresses = function (contactNo) {
     var addresses = [];
     for (var _i = 1; _i < arguments.length; _i++) {
         addresses[_i - 1] = arguments[_i];
@@ -25,7 +25,7 @@ function printAddresses(contactNo) {
     addresses.forEach(function (address) {
         console.log(address);
     });
-}
+};
 var customer = new customer_1.Customer(Math.floor(Math.random() * 300), "Parameswari", "Bala", 9952032876, "param@gmail.com", "Test@123", getAddresses());
 //console.log(customer);
 //invoke spread operator
