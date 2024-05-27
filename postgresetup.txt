@@ -1,0 +1,18 @@
+#nodejs typescript
+docker run --name postgres -p 5433:5432 -h 127.0.0.1 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:latest
+
+#use 5433 port no
+
+to show databases
+\l
+;
+create database webstoredb;
+
+to switch the db
+ \c webstoredb
+
+to list the tables
+\dt
+
+
+exit
