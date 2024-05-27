@@ -14,6 +14,7 @@ let corporate:Corporate=new Corporate(AutoGenerator.generateAccountNo(5,1)
     "param@gmail.com","Test@123",[],CompanyType.GOV)
 
 function isIndividual(customer: Individual|Corporate):customer is Individual{
+   //is property in customer
     return 'gender' in customer
 }
 
