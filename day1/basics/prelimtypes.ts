@@ -27,7 +27,11 @@ gender=Gender.FEMALE;
 console.log(`The Account No=${accountNo}`);
 console.log(`First Name=${firstName}`);
 console.log(`Last Name=${lastName}`);
-console.log(`Address=${address}`);
+//console.log(`Address=${address}`);
+Object.keys(address).forEach(key=>{
+    console.log(`${key}=${address[key as keyof typeof address]}`)
+})
+
 console.log(`Contact No=${contactNo}`);
 console.log(`Email=${email}`);
 console.log(`Password=${password}`);

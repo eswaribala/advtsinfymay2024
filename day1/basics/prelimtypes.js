@@ -26,7 +26,10 @@ gender = gender_1.Gender.FEMALE;
 console.log("The Account No=".concat(accountNo));
 console.log("First Name=".concat(firstName));
 console.log("Last Name=".concat(lastName));
-console.log("Address=".concat(address));
+//console.log(`Address=${address}`);
+Object.keys(address).forEach(function (key) {
+    console.log("".concat(key, "=").concat(address[key]));
+});
 console.log("Contact No=".concat(contactNo));
 console.log("Email=".concat(email));
 console.log("Password=".concat(password));
