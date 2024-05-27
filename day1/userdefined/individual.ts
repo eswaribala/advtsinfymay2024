@@ -1,11 +1,9 @@
 import {Customer} from "./customer";
 import {Gender} from "../basics/gender";
 import {Address} from "./address";
+import {Branch} from "./branch";
 
 export class Individual extends Customer{
-    deposit(money: number): never {
-        throw new Error("Method not implemented.");
-    }
 
     private _gender:Gender;
     private _dob: Date;
@@ -15,6 +13,7 @@ export class Individual extends Customer{
         super(accountNo, firstName, lastName, contactNo, email, password, addresses);
         this._gender = gender;
         this._dob = dob;
+
     }
 
 
@@ -32,5 +31,9 @@ export class Individual extends Customer{
 
     set dob(value: Date) {
         this._dob = value;
+    }
+
+    deposit(money: number): number {
+        return 0;
     }
 }

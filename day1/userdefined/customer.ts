@@ -1,4 +1,5 @@
 import {Address} from "./address";
+import {Branch} from "./branch";
 
 export abstract class Customer{
     protected _accountNo:number;
@@ -8,6 +9,7 @@ export abstract class Customer{
     protected _email:string;
     protected _password:string;
     protected _addresses:Address[];
+    static interestRate:number;
 
 
     constructor(accountNo: number, firstName: string, lastName: string, contactNo: number, email: string, password: string, addresses: Address[]) {
@@ -18,6 +20,7 @@ export abstract class Customer{
         this._email = email;
         this._password = password;
         this._addresses = addresses;
+
     }
 
 
@@ -80,5 +83,7 @@ export abstract class Customer{
     //abstract
 
     abstract deposit(money:number):number;
+
+
 
 }

@@ -32,9 +32,9 @@ let printAddresses=function(contactNo:number,country:string="India", ...addresse
 
 
 
-let customer:Customer=new Customer(Math.floor(Math.random()*300),
-    "Parameswari","Bala",9952032876,
-    "param@gmail.com","Test@123",getAddresses());
+//let customer:Customer=new Customer(Math.floor(Math.random()*300),
+  //  "Parameswari","Bala",9952032876,
+ //   "param@gmail.com","Test@123",getAddresses());
 //console.log(customer);
 
 //invoke spread operator

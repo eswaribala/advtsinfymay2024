@@ -45,6 +45,9 @@ var Individual = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
+    Individual.prototype.deposit = function (money) {
+        return 0;
+    };
     return Individual;
 }(customer_1.Customer));
 exports.Individual = Individual;
