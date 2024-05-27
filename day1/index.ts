@@ -21,11 +21,13 @@ function getAddresses():Address[]{
 
 //spread operator
 //assign anonymous function to variable
-let printAddresses=function(contactNo:number, ...addresses:Address[]):void{
+//default values
+let printAddresses=function(contactNo:number,country:string="India", ...addresses:Address[]):void{
     console.log(`Contact No=${contactNo}`)
     addresses.forEach(address=>{
         console.log(address);
     })
+    console.log(`Country Name=${country}`)
 }
 
 
@@ -39,11 +41,11 @@ let customer:Customer=new Customer(Math.floor(Math.random()*300),
 
 printAddresses(9952032876);
 //one address
-printAddresses(9952032875,getAddresses()[0]);
+printAddresses(9952032875,"",getAddresses()[0]);
 //two addresses
-printAddresses(9952032874,getAddresses()[0],getAddresses()[1]);
+printAddresses(9952032874,"Australia",getAddresses()[0],getAddresses()[1]);
 //three addresses
-printAddresses(9952032873,getAddresses()[0],getAddresses()[1],getAddresses()[2]);
+printAddresses(9952032873,"Singapore",getAddresses()[0],getAddresses()[1],getAddresses()[2]);
 
 
 /*

@@ -16,26 +16,30 @@ function getAddresses() {
     return addresses;
 }
 //spread operator
-var printAddresses = function (contactNo) {
+//assign anonymous function to variable
+//default values
+var printAddresses = function (contactNo, country) {
+    if (country === void 0) { country = "India"; }
     var addresses = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        addresses[_i - 1] = arguments[_i];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        addresses[_i - 2] = arguments[_i];
     }
     console.log("Contact No=".concat(contactNo));
     addresses.forEach(function (address) {
         console.log(address);
     });
+    console.log("Country Name=".concat(country));
 };
 var customer = new customer_1.Customer(Math.floor(Math.random() * 300), "Parameswari", "Bala", 9952032876, "param@gmail.com", "Test@123", getAddresses());
 //console.log(customer);
 //invoke spread operator
 printAddresses(9952032876);
 //one address
-printAddresses(9952032875, getAddresses()[0]);
+printAddresses(9952032875, "", getAddresses()[0]);
 //two addresses
-printAddresses(9952032874, getAddresses()[0], getAddresses()[1]);
+printAddresses(9952032874, "Australia", getAddresses()[0], getAddresses()[1]);
 //three addresses
-printAddresses(9952032873, getAddresses()[0], getAddresses()[1], getAddresses()[2]);
+printAddresses(9952032873, "Singapore", getAddresses()[0], getAddresses()[1], getAddresses()[2]);
 /*
 let values:Address[];
 Object.keys(customer).forEach(key=>{
