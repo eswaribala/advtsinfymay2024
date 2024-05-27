@@ -7,16 +7,43 @@ let cities:string[]=["Chennai","Bangalore","Pune"]
 let states:string[]=["TN","KN","MH"];
 //array size declaration
 let addresses:Address[]=new Array(3);
-for(let i=0;i<3;i++){
-    addresses[i]=new Address(doorNos[i],streetNames[i],cities[i],
-        states[i]);
+
+
+//let's create function returns addresses
+
+function getAddresses():Address[]{
+    for(let i=0;i<3;i++){
+        addresses[i]=new Address(doorNos[i],streetNames[i],cities[i],
+            states[i]);
+    }
+    return addresses;
 }
+
+//spread operator
+function printAddresses(contactNo:number, ...addresses:Address[]):void{
+    console.log(`Contact No=${contactNo}`)
+    addresses.forEach(address=>{
+        console.log(address);
+    })
+}
+
 
 
 let customer:Customer=new Customer(Math.floor(Math.random()*300),
     "Parameswari","Bala",9952032876,
-    "param@gmail.com","Test@123",addresses);
-console.log(customer);
+    "param@gmail.com","Test@123",getAddresses());
+//console.log(customer);
+
+//invoke spread operator
+
+printAddresses(9952032876);
+//one address
+printAddresses(9952032875,getAddresses()[0]);
+//two addresses
+printAddresses(9952032874,getAddresses()[0],getAddresses()[1]);
+//three addresses
+printAddresses(9952032873,getAddresses()[0],getAddresses()[1],getAddresses()[2]);
+
 
 /*
 let values:Address[];

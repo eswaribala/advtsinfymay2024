@@ -8,11 +8,34 @@ var cities = ["Chennai", "Bangalore", "Pune"];
 var states = ["TN", "KN", "MH"];
 //array size declaration
 var addresses = new Array(3);
-for (var i = 0; i < 3; i++) {
-    addresses[i] = new address_1.Address(doorNos[i], streetNames[i], cities[i], states[i]);
+//let's create function returns addresses
+function getAddresses() {
+    for (var i = 0; i < 3; i++) {
+        addresses[i] = new address_1.Address(doorNos[i], streetNames[i], cities[i], states[i]);
+    }
+    return addresses;
 }
-var customer = new customer_1.Customer(Math.floor(Math.random() * 300), "Parameswari", "Bala", 9952032876, "param@gmail.com", "Test@123", addresses);
-console.log(customer);
+//spread operator
+function printAddresses(contactNo) {
+    var addresses = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        addresses[_i - 1] = arguments[_i];
+    }
+    console.log("Contact No=".concat(contactNo));
+    addresses.forEach(function (address) {
+        console.log(address);
+    });
+}
+var customer = new customer_1.Customer(Math.floor(Math.random() * 300), "Parameswari", "Bala", 9952032876, "param@gmail.com", "Test@123", getAddresses());
+//console.log(customer);
+//invoke spread operator
+printAddresses(9952032876);
+//one address
+printAddresses(9952032875, getAddresses()[0]);
+//two addresses
+printAddresses(9952032874, getAddresses()[0], getAddresses()[1]);
+//three addresses
+printAddresses(9952032873, getAddresses()[0], getAddresses()[1], getAddresses()[2]);
 /*
 let values:Address[];
 Object.keys(customer).forEach(key=>{
