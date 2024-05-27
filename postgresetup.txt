@@ -2,6 +2,10 @@
 #postgre container
 docker run --name postgres -p 5433:5432 -h 127.0.0.1 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -d postgres:latest
 
+#to access postgre client
+docker exec -it postgres psql -U postgres
+
+
 #use 5433 port no
 
 to show databases
