@@ -4,6 +4,15 @@ import {Customer} from "./customer.model";
     tableName:'Address'
 })
 export class Address extends Model<Address>{
+
+    @Column({
+        type:DataType.BIGINT,
+        field:'Address_Id',
+        primaryKey:true,
+        autoIncrement:true
+    })
+    addressId?:number
+
     @Column({
         type:DataType.STRING,
         field:'Door_No'
@@ -26,8 +35,10 @@ export class Address extends Model<Address>{
     state?:string
 
     @ForeignKey(() => Customer)
-    @Column({primaryKey:true})
-    id?: number;
+    @Column({
+        field:'CustomerId_FK'
+    })
+    customerIdFK?: number;
 
     @BelongsTo(() => Customer)
     customer!: Customer;
