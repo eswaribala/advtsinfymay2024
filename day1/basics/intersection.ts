@@ -1,10 +1,8 @@
-import {GST} from "../userdefined/gst";
-import {TDS} from "../userdefined/tds";
-import {ServiceTax} from "../userdefined/serviceTax";
+import {TaxModule} from "../userdefined/taxmodule";
 import {CompanyType} from "./companyType";
 
-type SelfEmployed = GST & TDS
-type MSME= GST & TDS & ServiceTax
+type SelfEmployed = TaxModule.GST & TaxModule.TDS
+type MSME= TaxModule.GST & TaxModule.TDS & TaxModule.ServiceTax
 
 //test intersection
 
