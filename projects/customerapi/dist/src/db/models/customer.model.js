@@ -73,6 +73,6 @@ __decorate([
 ], Customer.prototype, "password", void 0);
 exports.Customer = Customer = __decorate([
     (0, sequelize_typescript_1.Table)({
-        tableName: 'customer'
+        tableName: 'Customer'
     })
 ], Customer);
