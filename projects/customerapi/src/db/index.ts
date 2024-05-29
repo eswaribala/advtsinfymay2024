@@ -6,7 +6,7 @@ import {Individual} from "./models/individual.model";
 import {Corporate} from "./models/corporate.model";
 import {Address} from "./models/address.model";
 
-class DatabaseConnection{
+export class DatabaseConnection{
     sequelize:Sequelize|undefined;
     constructor() {
        console.log(`Host=${config.HOST}`)
@@ -14,7 +14,7 @@ class DatabaseConnection{
 
     }
 
-    async createConnection(){
+    private async createConnection(){
         this.sequelize=new Sequelize({
             database:config.DB,
             port: config.PORT,
@@ -30,9 +30,9 @@ class DatabaseConnection{
             },
             models:[Customer,Individual,Corporate,Address]
         })
-        await this.sequelize.authenticate().then(response=>{
+        await this.sequelize.authenticate().then(()=>{
             console.log("DB Connection Ready")
-        }).catch(error=>{
+        }).catch((error)=>{
             console.log("DB Connection Error")
         })
 
