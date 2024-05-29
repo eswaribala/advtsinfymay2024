@@ -20,13 +20,13 @@ const schema=buildSchema(`
      password:String
   }
   
-  type CustomerQuery{
-     getAllCustomers():Customer[]
+  type Query{
+     getAllCustomers:[Customer]
      getCustomerById(id:Int):Customer  
   
   }
   
-  type CustomerMutation{
+  type Mutation{
     addCustomer(customerInput:CustomerInput):Customer
   }
   

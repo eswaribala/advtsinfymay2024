@@ -24,9 +24,9 @@ export class Server{
         app.use(
             "/graphql",
             graphqlHTTP({
-                schema: schema,
+               schema:schema,
                 rootValue: root,
-                graphiql: true,
+                graphiql: true
             })
         );
 
