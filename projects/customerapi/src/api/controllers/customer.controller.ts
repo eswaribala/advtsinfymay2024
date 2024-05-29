@@ -34,8 +34,9 @@ export default class CustomerController{
     }
 
     async findAll(req:Request,res:Response){
+        //console.log(typeof req.query.mobileNo)
         const firstName:string = typeof req.query.firstName === "string" ? req.query.firstName : "";
-        const mobileNo:number = typeof req.query.mobileNo === "number" ? req.query.mobileNo : 0;
+        const mobileNo:string = typeof req.query.mobileNo === "string" ? req.query.mobileNo : "0";
 
         //validation
         if (!firstName) {
@@ -45,10 +46,11 @@ export default class CustomerController{
             return;
         }
 
+        let contactNo:number=parseInt(mobileNo)
 
         try{
 
-            const customers:Customer[]= await customerRepository.findAllCustomers({firstName:firstName,contactNo:mobileNo})
+            const customers:Customer[]= await customerRepository.findAllCustomers({firstName:firstName,contactNo:contactNo})
             return res.status(200).send(customers)
 
         }catch(error){
@@ -138,6 +140,7 @@ export default class CustomerController{
     }
 
     async updateCustomer(req:Request,res:Response){
+
         const email:string = typeof req.body.email === "string" ? req.body.email : "";
         const mobileNo:number = typeof req.body.mobileNo === "number" ? req.body.mobileNo : 0;
         const customerId:number = typeof req.body.id === "number" ? req.body.id : 0;
