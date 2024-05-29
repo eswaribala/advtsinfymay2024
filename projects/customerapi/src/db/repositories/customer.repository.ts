@@ -1,9 +1,10 @@
 import {ICustomerRepository} from "./icustomer.repository";
 import {Customer} from "../models/customer.model";
-import {Error, Op} from "sequelize";
+import {Op} from "sequelize";
+
 
 class CustomerRepository implements ICustomerRepository{
-    async addCustomer(customer: Customer): Promise<Customer> {
+    async addCustomer(customer: Customer): Promise<Customer|never> {
        try{
            return await Customer.create({
                firstName:customer.firstName,
@@ -18,31 +19,75 @@ class CustomerRepository implements ICustomerRepository{
            throw new Error("Failed to create Customer!");
        }
     }
-
-    deleteAllCustomers(): Promise<boolean> {
-        return Promise.resolve(false);
+    async deleteAllCustomers(): Promise<boolean> {
+        try {
+            const rows=await  Customer.destroy({
+                where: {},
+                truncate: false
+            });
+            if(rows>0)
+                return true
+            else
+                return false
+        } catch (error) {
+            throw new Error("Failed to delete all customers!");
+        }
     }
 
-    deleteCustomerById(id: number): Promise<string> {
-        return Promise.resolve("");
+    async deleteCustomerById(id: number): Promise<string> {
+        try {
+            const rows = await Customer.destroy({
+                where: {
+                    customerId: id,
+                },
+            });
+            if (rows > 0)
+                return `Customer with Id=${id} deleted`
+            else
+                return `Customer with Id=${id} not found`
+        }catch(error){
+            throw new Error("Failed to delete customers!");
+        }
     }
 
     async findAllCustomers(searchParams: { firstName: string; contactNo: number }): Promise<Customer[]> {
 
-        return await Customer.findAll({
-            where: {
-                [Op.and]: [{ firstName: searchParams.firstName }, { contactNo: searchParams.contactNo }],
-            },
-        });
+        try {
+            return await Customer.findAll({
+                where: {
+                    [Op.and]: [{firstName: searchParams.firstName}, {contactNo: searchParams.contactNo}],
+                },
+            });
+        }catch(error){
+            throw new Error("Failed to find all customers!");
+        }
     }
 
     async findCustomerById(id: number): Promise<Customer|null> {
-        return  await Customer.findByPk(id)
+        try {
+            return await Customer.findByPk(id)
+        }catch(error){
+            throw new Error("Failed to find customer!");
+        }
     }
 
-    updateCustomer(email: string, contactNo: number, id: number): Promise<Customer> {
-        return Promise.resolve(undefined);
+    async updateCustomer(email: string, contactNo: number, id: number): Promise<Customer|null> {
+        try {
+            await Customer.update(
+                {email: email, contactNo: contactNo},
+                {
+                    where: {
+                        customerId: id,
+                    },
+                },
+            );
+            return await this.findCustomerById(id)
+        }catch(error){
+            throw new Error("Failed to update customer!");
+        }
     }
+
+
 
 }
 
