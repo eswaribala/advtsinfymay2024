@@ -73,6 +73,8 @@ class CustomerRepository implements ICustomerRepository{
     }
 
     async updateCustomer(data:UpdateRequest): Promise<Customer|null> {
+
+        console.log(data)
         try {
             await Customer.update(
                 {email: data.email, contactNo: data.contactNo},

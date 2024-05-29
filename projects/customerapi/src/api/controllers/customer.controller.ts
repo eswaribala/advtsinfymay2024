@@ -143,8 +143,8 @@ export default class CustomerController{
 
         const email:string = typeof req.body.email === "string" ? req.body.email : "";
         const mobileNo:number = typeof req.body.mobileNo === "number" ? req.body.mobileNo : 0;
-        const customerId:number = typeof req.body.id === "number" ? req.body.id : 0;
-
+        const customerId:number = typeof req.body.customerId === "number" ? req.body.customerId : 0;
+        console.log(typeof (mobileNo))
         let updateRequest:UpdateRequest=new UpdateRequest(email,mobileNo,customerId);
 
         //validation
