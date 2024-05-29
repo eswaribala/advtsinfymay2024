@@ -4,7 +4,7 @@ import {Model,Column, DataType, Table} from "sequelize-typescript";
 @Table({
     tableName:'customer'
 })
-export class Customer extends Model<Customer>{
+export class Customer extends Model{
       @Column({
           type:DataType.BIGINT,
           field:'Customer_Id',
