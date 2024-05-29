@@ -14,7 +14,11 @@ class CustomerRoute{
     initializeRoutes(){
 
         this.router.post("/v1.0",this.customerController.create)
-
+        this.router.get("/v1.0",this.customerController.findAll)
+        this.router.get("/v1.0/:id",this.customerController.findById)
+        this.router.put("/v1.0",this.customerController.updateCustomer)
+        this.router.delete("/v1.0",this.customerController.deleteAll)
+        this.router.delete("/v1.0/:id",this.customerController.deleteById)
     }
 
 }

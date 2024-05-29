@@ -1,6 +1,7 @@
 import {ICustomerRepository} from "./icustomer.repository";
 import {Customer} from "../models/customer.model";
 import {Op} from "sequelize";
+import {UpdateRequest} from "../dtos/customer.request";
 
 
 class CustomerRepository implements ICustomerRepository{
@@ -71,17 +72,17 @@ class CustomerRepository implements ICustomerRepository{
         }
     }
 
-    async updateCustomer(email: string, contactNo: number, id: number): Promise<Customer|null> {
+    async updateCustomer(data:UpdateRequest): Promise<Customer|null> {
         try {
             await Customer.update(
-                {email: email, contactNo: contactNo},
+                {email: data.email, contactNo: data.contactNo},
                 {
                     where: {
-                        customerId: id,
+                        customerId: data.customerId,
                     },
                 },
             );
-            return await this.findCustomerById(id)
+            return await this.findCustomerById(data.customerId)
         }catch(error){
             throw new Error("Failed to update customer!");
         }
