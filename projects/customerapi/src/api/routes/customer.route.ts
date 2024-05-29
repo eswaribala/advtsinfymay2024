@@ -8,6 +8,7 @@ class CustomerRoute{
     constructor() {
         this.router = Router();
         this.customerController=new CustomerController();
+        this.initializeRoutes()
     }
 
     initializeRoutes(){
