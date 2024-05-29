@@ -5,8 +5,8 @@ const getAllCustomers=async ():Promise<Customer[]>=>{
     return await Customer.findAll()
 }
 
-const getCustomerById=async (id:number):Promise<Customer|null>=>{
-    return await Customer.findByPk(id)
+const getCustomerById=async (args:{id:number}):Promise<Customer|null>=>{
+    return await Customer.findByPk(args.id)
 
 }
 
