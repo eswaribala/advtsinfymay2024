@@ -27,7 +27,7 @@ const schema=buildSchema(`
   }
   
   type Mutation{
-    addCustomer(customerInput:CustomerInput):Customer
+    addCustomer(firstName: String!, middleName: String!, lastName: String, contactNo: Int!,email:String,password:String):Customer
   }
   
 

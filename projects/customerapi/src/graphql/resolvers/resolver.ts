@@ -10,15 +10,18 @@ const getCustomerById=async (args:{id:number}):Promise<Customer|null>=>{
 
 }
 
-const addCustomer=async (customer:Customer):Promise<Customer>=>{
-
+const addCustomer=async (args: {
+    firstName: string, middleName: string, lastName: string, contactNo: number,
+    email:string,password:number
+}):Promise<Customer>=>{
+      console.log(args)
      return await Customer.create({
-        firstName:customer.firstName,
-        middleName:customer.middleName,
-        lastName:customer.lastName,
-        email:customer.email,
-        password:customer.password,
-        contactNo:customer.contactNo
+        firstName:args.firstName,
+        middleName:args.middleName,
+        lastName:args.lastName,
+        email:args.email,
+        password:args.password,
+        contactNo:args.contactNo
     })
 
 }
