@@ -1,5 +1,6 @@
 import {Customer} from "./customer.model";
 import {Column, DataType, Table} from "sequelize-typescript";
+import {Gender} from "./gender.enum";
 
 @Table({
     tableName:'Individual'

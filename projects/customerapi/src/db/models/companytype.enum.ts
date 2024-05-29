@@ -1,3 +1,3 @@
-enum CompanyType{
+export enum CompanyType{
     PUBLIC="PUBLIC",PRIVATE="PRIVATE",TRANSGENDER="TRANSGENDER"
 }
