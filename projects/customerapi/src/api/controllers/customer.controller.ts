@@ -3,7 +3,7 @@ import customerRepository from "../../db/repositories/customer.repository";
 import {Customer} from "../../db/models/customer.model";
 export default class CustomerController{
 
-    create(req:Request,res:Response){
+    async create(req:Request,res:Response){
         console.log(req.body)
         //validation
         if (!req.body.firstName) {
@@ -13,10 +13,10 @@ export default class CustomerController{
             return;
         }
         let customer:Customer=req.body;
-        let savedResponse:any;
+
         try{
 
-             savedResponse= customerRepository.addCustomer(customer);
+            const savedResponse:Customer= await customerRepository.addCustomer(customer);
              return res.status(201).send({
                  'data':savedResponse,
                  'message':'customer successfully created'

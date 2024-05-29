@@ -2,7 +2,7 @@ import {Model,Column, DataType, Table} from "sequelize-typescript";
 
 
 @Table({
-    tableName:'customer'
+    tableName:'Customer'
 })
 export class Customer extends Model{
       @Column({
