@@ -27,10 +27,12 @@ const schema=buildSchema(`
   }
   
   type Mutation{
-    addCustomer(firstName: String!, middleName: String!, lastName: String, contactNo: Int!,email:String,password:String):Customer
+     addCustomer(customerInput:CustomerInput):Customer
   }
   
 
 `)
 
 export default schema;
+
+// addCustomer(firstName: String!, middleName: String!, lastName: String, contactNo: Int!,email:String,password:String):Customer

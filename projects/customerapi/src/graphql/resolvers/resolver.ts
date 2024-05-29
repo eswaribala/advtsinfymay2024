@@ -9,7 +9,7 @@ const getCustomerById=async (args:{id:number}):Promise<Customer|null>=>{
     return await Customer.findByPk(args.id)
 
 }
-
+/*
 const addCustomer=async (args: {
     firstName: string, middleName: string, lastName: string, contactNo: number,
     email:string,password:number
@@ -26,6 +26,21 @@ const addCustomer=async (args: {
 
 }
 
+ */
+const addCustomer=async (args: {
+    customerInput:any
+}):Promise<Customer>=>{
+    console.log(args.customerInput)
+    return await Customer.create({
+        firstName:args.customerInput.firstName,
+        middleName:args.customerInput.middleName,
+        lastName:args.customerInput.lastName,
+        email:args.customerInput.email,
+        password:args.customerInput.password,
+        contactNo:args.customerInput.contactNo
+    })
+
+}
 export const root={
     getAllCustomers,
     getCustomerById,
