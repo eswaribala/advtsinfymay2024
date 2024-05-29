@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    command: npm start
+    ports:
+      - "0.0.0.0:3200:3200"
+    #volumes:
+    #  - .:/usr/app
+    depends_on:
+      - "postgres"
+   # networks:
+   #   - backend
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - LC_ALL=C.UTF-8
+      - POSTGRES_DB=testdb
+      - POSTGRES_PORT=5434
+    ports:
+      - 5434:5432
+
+
+networks:
+  default:
+    external:
+      name: infynetwork
+

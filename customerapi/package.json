@@ -1,0 +1,49 @@
+{
+  "name": "customerapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.ts",
+    "build": "npx tsc",
+    "coverage": "jest --coverage",
+    "test": "jest"
+  },
+  "author": "Parameswari",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.8.1",
+    "graphql-tools": "^9.0.1",
+    "nodemon": "^3.1.1",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "sequelize-typescript": "^2.1.6",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0",
+    "ts-node": "^10.9.2",
+    "kafka-node": "^3.0.0",
+    "kafkajs": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.12",
+    "@types/supertest": "^6.0.2",
+    "@types/kafka-node": "^3.0.0",
+    "@types/kafkajs": "^1.9.0",
+    "@types/readline-sync": "^1.4.8",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "readline-sync": "^1.4.10"
+  },
+  "license": "ISC"
+}
