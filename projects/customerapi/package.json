@@ -27,7 +27,8 @@
     "sequelize-typescript": "^2.1.6",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "@aws-sdk/client-dynamodb": "^3.585.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
