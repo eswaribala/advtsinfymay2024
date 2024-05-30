@@ -1,9 +1,9 @@
 import request from "supertest";
 import {app} from "./index";
 
-describe("API endpoint /colors", () => {
-    // GET - List all colors
-    it("should return all colors", async () => {
+describe("fetch customer by id", () => {
+    // GET - if id is valid fetch customer otherwise null
+    it("should return customer", async () => {
         const res = await request(app)
             .get("/api/customers/v1.0/2")
             .expect("Content-Type", /json/);
