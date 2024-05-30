@@ -2,6 +2,7 @@ import {Request,Response} from "express";
 import customerRepository from "../../db/repositories/customer.repository";
 import {Customer} from "../../db/models/customer.model";
 import {UpdateRequest} from "../../db/dtos/customer.request";
+import {publish} from "../../kafkaproducer";
 export default class CustomerController{
 
     async create(req:Request,res:Response){
@@ -168,6 +169,34 @@ export default class CustomerController{
             })
         }
 
+
+    }
+
+    async publishCustomerInfo(req:Request,res:Response){
+        const customerId: number = parseInt(req.params.id);
+
+        //validation
+        if (customerId<=0) {
+            res.status(400).send({
+                message: "Content can not be empty!"
+            });
+            return;
+        }
+
+
+        try{
+
+            const customer:Customer|null= await customerRepository.findCustomerById(customerId)
+            await publish(customer);
+
+            return res.status(200).send('Data Published')
+
+        }catch(error){
+            return res.status(500).send({
+
+                'message': `Data not found ${error}`
+            })
+        }
 
     }
 
