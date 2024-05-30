@@ -9,6 +9,12 @@ export const config = {
         min: 0,
         acquire: 30000,
         idle: 10000
+    },
+    Kafka:{
+        HOST:'localhost',
+        PORT: 9092,
+        TOPIC:'customerinfytopic',
+        GROUPID:'customerinfy-group'
     }
 };
 

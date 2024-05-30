@@ -3,16 +3,16 @@ import AccountController from "../controllers/account.controller";
 
 class AccountRoute {
     router:Router;
-    customerController:AccountController;
+    accountController:AccountController;
 
     constructor() {
         this.router = Router();
-        this.customerController=new AccountController();
+        this.accountController=new AccountController();
         this.initializeRoutes()
     }
 
     initializeRoutes(){
-
+         this.router.get("/v1.0/consume",this.accountController.dataConsumer)
 
     }
 
