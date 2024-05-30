@@ -1,9 +1,9 @@
 export const config = {
-    HOST: "localhost",
-    PORT: 5433,
+    HOST: "host.docker.internal",
+    PORT: 5434,
     USER: "postgres",
     PASSWORD: "postgres",
-    DB: "customerdb",
+    DB: "dockercustomerdb",
     pool: {
         max: 5,
         min: 0,

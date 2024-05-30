@@ -56,7 +56,7 @@ describe("fetch customer by id", () => {
             .send({
 
                 "mobileNo":9952032855,
-                "email":"sharmiladevi@gmail.com",
+                "email":"sharmila@gmail.com",
                 "customerId":8
 
             })
