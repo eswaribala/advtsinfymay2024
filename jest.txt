@@ -1,0 +1,4 @@
+#install jest lib
+npm install jest @types/jest ts-jest supertest @types/supertest --save-dev --force
+#jest configuration
+npx ts-jest config:init
